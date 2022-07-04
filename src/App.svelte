@@ -2,6 +2,28 @@
   import UnitTTK from './Unit-TTK.svelte';
   import UnitTG from './Unit-GK.svelte';
   import UnitRoom from './Unit-Room.svelte';
+  const optionsGK = {
+    minT: 10,
+    maxT: 75,
+    currentT: 15,
+    targetT: 65,
+    status: false,
+  };
+  const optionsTTK = {
+    minT: 0,
+    maxT: 80,
+    currentT: 15,
+    targetT: 70,
+    status: false,
+  };
+  const optionsRoom = {
+    minT: 10,
+    maxT: 22,
+    currentT: 15,
+    targetT: 1,
+    status: false,
+  };
+
 
   function changeTemp(ev) {
     console.log('отправка запроса на сервер');
@@ -10,9 +32,10 @@
 
 <main>
   <h1>Контроль температуры</h1>
-  <UnitTTK on:changeTemp={changeTemp} />
-  <UnitTG on:changeTemp={changeTemp} />
-  <UnitRoom on:changeTemp={changeTemp} />
+  <!-- <UnitTTK on:changeTemp={changeTemp} options = ''/> -->
+  <UnitTTK on:changeTemp={changeTemp} options = ''/>
+  <UnitTG on:changeTemp={changeTemp} options=''/>
+  <UnitRoom on:changeTemp={changeTemp} options=''/>
 </main>
 
 <style>

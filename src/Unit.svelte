@@ -2,13 +2,11 @@
   import { createEventDispatcher } from 'svelte';
   export let unitName;
   export let unitId;
-  export const params = {
-    unitId: '',
-    unitName: '',
+  export let options = {
     minT: 0,
-    maxT: 80,
-    currentT: 15,
-    targetT: 65,
+    maxT: 0,
+    currentT: 0,
+    targetT: 0,
     status: false,
   };
 
@@ -28,23 +26,23 @@
 
 <div class="unit">
   <h3>{unitName}</h3>
-  <div class="params">
+  <div class="options">
     <ul>
-      <li class="params__item">
+      <li class="options__item">
         <span>Min t:</span>
-        <h5>{params.minT}</h5>
+        <h5>{options.minT}</h5>
       </li>
-      <li class="params__item">
+      <li class="options__item">
         <span>Max t:</span>
-        <h5>{params.maxT}</h5>
+        <h5>{options.maxT}</h5>
       </li>
-      <li class="params__item" style="color: white;">
+      <li class="options__item" style="color: white;">
         <span>Current T</span>
-        <h5>{params.currentT}</h5>
+        <h5>{options.currentT}</h5>
       </li>
-      <li class="params__item">
+      <li class="options__item">
         <span>Target t</span>
-        <h5>{params.targetT}</h5>
+        <h5>{options.targetT}</h5>
       </li>
     </ul>
     <div class="controls">
@@ -72,12 +70,12 @@
     background-color: rgb(82, 123, 151);
     margin: 10px;
   }
-  .params {
+  .options {
     display: flex;
     justify-content: space-around;
     align-items: center;
   }
-  .params__item {
+  .options__item {
     display: inline-block;
   }
   .controls {
